@@ -1,2 +1,6 @@
--- Write your SQL query here
-SELECT name, salary FROM employees where department IN ('Engineering', 'Marketing') AND salary > 70000;
+-- Write your SQL query hereS
+
+SELECT 
+    name,
+    salary
+    FROM employees WHERE department IN ('Engineering', 'Marketing') AND salary > 70000
