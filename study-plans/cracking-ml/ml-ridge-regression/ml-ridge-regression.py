@@ -1,30 +1,31 @@
-def ridge_regression(X, y, lr, epochs, alpha):
+import numpy as np
+
+def ridge_regression(X: list, y: list, alpha: float, lr: float, epochs: int) -> tuple:
     """
-    Perform ridge regression using gradient descent.
-    Returns: tuple of (weights_list, bias)
+    Returns the fitted weight list and bias.
     """
 
-    X = np.array(X, dtype=float)
-    y = np.array(y, dtype=float)
+    X = np.asarray(X, dtype='float64')
+    y = np.asarray(y, dtype='float64')
 
-    n,d = X.shape
+    n, d = X.shape
 
     w = np.zeros(d)
     b = 0.0 
 
     for _ in range(epochs):
         y_pred = np.dot(X, w) + b 
+
         error = y_pred - y 
 
-        #compute the gradient descents 
-        dw = 2/n * np.dot(X.T, error) + 2 * alpha * w
+        dw = 2/n * np.dot(X.T, error)  + 2 * alpha * w
         db = 2/n * np.sum(error)
 
         w -= lr * dw
         b -= lr * db 
 
-    weights = np.round(w, 4)
+    weight = np.round(w, 4)
     bias = np.round(b, 4)
-    return (weights, bias)
 
-        
+    return (weight, bias)
+    
