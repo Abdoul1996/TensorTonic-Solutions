@@ -1,35 +1,34 @@
 import numpy as np
 
-def linear_regression(X, y, lr, epochs):
+def linear_regression_from_scratch(X: list, y: list, lr: float, epochs: int) -> tuple:
     """
-    Returns: tuple (weights, bias)
+    Returns the fitted weight list and bias.
     """
-    X = np.array(X, dtype=float)
-    y = np.array(y, dtype=float)
-    
-    n_samples, n_features = X.shape
 
-    w = np.zeros(n_features)
+    X = np.array(X, dtype='float64')
+    y = np.array(y, dtype='float64')
+
+    n, d = X.shape
+
+    w = np.zeros(d)
     b = 0.0 
 
     for _ in range(epochs):
-
-        # computer the predictions 
         y_pred = np.dot(X,w) + b 
 
-        # compute the gradient descents 
-        errors = y_pred - y 
-        dw = 2/n_samples * np.dot(X.T, errors)
-        db = 2/n_samples * np.sum(errors)
+        error = y_pred - y  
 
-        # update the parameters
-        w -= lr * dw 
-        b -= lr * db
+        dw = 2/n * np.dot(X.T, error)
+        db = 2/n * np.sum(error)
 
-    weights = np.round(w, 4)
-    bias = np.round(b, 4)
+        w -= lr * dw
+        b -= lr * db 
 
-    return (weights, bias)
+    weight = np.round(w, 4)
+    bias = np.round(b, 4 )
+
+    return (weight, bias)
+
 
     
     
