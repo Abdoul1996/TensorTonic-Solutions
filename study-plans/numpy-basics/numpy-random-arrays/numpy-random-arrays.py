@@ -1,13 +1,12 @@
 import numpy as np
 
-def generate_random_array(shape, kind, seed):
+def generate_random_array(shape: list, kind: str, seed: int) -> np.ndarray:
     """
-    Returns: 2D ndarray of float64 random values
+    Returns a seeded 2D float64 random array with the requested shape.
     """
     rng = np.random.default_rng(seed)
 
-    if kind == 'normal':
-        return rng.standard_normal(tuple(shape), dtype=np.float64)
-
-    return rng.random(tuple(shape), dtype=np.float64)
+    if kind == 'uniform':
+      return rng.random(shape, dtype=np.float64)
+    return rng.standard_normal(shape, dtype=np.float64)
     
