@@ -1,10 +1,10 @@
 import numpy as np
 
-def create_sequence(start, stop, param, kind):
+def create_sequence(start: float, stop: float, param: float, kind: str) -> np.ndarray:
     """
-    Returns: 1D ndarray of float64 values
+    Returns a 1D float64 array containing the requested sequence.
     """
     if kind == 'arange':
-        return np.arange(start, stop, param, dtype='float64')
-
-    return np.linspace(start, stop, num=int(param))
+      return np.arange(start, stop, step=param, dtype=np.float64)
+    return np.linspace(start, stop, param, dtype=np.float64)
+      
