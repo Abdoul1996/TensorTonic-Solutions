@@ -1,9 +1,12 @@
 import numpy as np
 
-def create_filled_array(shape, kind):
+def create_filled_array(shape: list, kind: str) -> np.ndarray:
     """
-    Returns: 2D numpy array of given shape with dtype float64
+    Returns a 2D float64 array of zeros or ones with the requested shape.
     """
-    if kind == 'zeros':
-        return np.zeros(shape, dtype='float64')
-    return np.ones(shape, dtype='float64')
+    if kind == "zeros":
+      return np.zeros(shape, dtype=np.float64)
+    return np.ones(shape, dtype=np.float64)
+      
+    
+    
