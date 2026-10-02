@@ -20,7 +20,7 @@ b = np.array([[1, 2, 3], [4, 5, 6]])
 # shape: (2, 3), dtype: int64
 ```
 
-<span style="font-size: 14px;">Each inner list becomes a row. All inner lists must have the same length, or NumPy creates a ragged array of dtype `object` (which defeats the purpose of using NumPy).</span>
+<span style="font-size: 14px;">Each inner list becomes a row. All inner lists must have the same length for a regular two-dimensional array.</span>
 
 ---
 
@@ -31,7 +31,7 @@ b = np.array([[1, 2, 3], [4, 5, 6]])
 * <span style="font-size: 14px;">All integers: `int64` on 64-bit systems</span>
 * <span style="font-size: 14px;">Any float present: `float64` (all values upcast to float)</span>
 * <span style="font-size: 14px;">Any complex number: `complex128`</span>
-* <span style="font-size: 14px;">Mixed numeric and string: `object` (avoid this)</span>
+* <span style="font-size: 14px;">Mixed numeric and string: values may be converted to strings rather than kept numeric</span>
 
 ```python
 np.array([1, 2, 3]).dtype          # int64
