@@ -9,4 +9,8 @@ def generate_random_array(shape: list, kind: str, seed: int) -> np.ndarray:
     if kind == 'uniform':
       return rng.random(shape, dtype=np.float64)
     return rng.standard_normal(shape, dtype=np.float64)
+      
+    
+
+    
     
