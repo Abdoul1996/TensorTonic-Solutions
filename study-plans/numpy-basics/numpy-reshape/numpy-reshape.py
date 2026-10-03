@@ -7,7 +7,7 @@ def reshape_array(data: list, operation: str) -> np.ndarray:
     arr = np.array(data, dtype=np.float64)
     if operation == 'flatten':
       return arr.flatten()
-    if operation == 'transpose':
-      return arr.T
-    return np.expand_dims(arr, axis=0)
-    
+    elif operation == 'transpose':
+      return np.transpose(arr)
+    else:
+      return np.expand_dims(arr, axis=0)
