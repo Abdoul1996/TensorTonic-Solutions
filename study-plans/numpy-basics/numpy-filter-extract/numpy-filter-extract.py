@@ -6,7 +6,5 @@ def filter_and_extract(data: list, row_start: int, row_stop: int, threshold: flo
     """
     arr = np.array(data, dtype=np.float64)
     arr = arr[row_start:row_stop]
-    mask = arr > threshold
+    mask = arr>threshold
     return arr[mask]
-
-    
