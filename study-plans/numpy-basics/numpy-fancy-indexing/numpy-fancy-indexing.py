@@ -5,4 +5,7 @@ def select_by_index(arr: list, indices: list, axis: int) -> np.ndarray:
     Returns a 2D float64 array of the selected rows or columns.
     """
     arr = np.array(arr, dtype=np.float64)
-    return np.take(arr, indices, axis)
+    if axis == 0:
+      return arr[indices,:]
+    return arr[:, indices]
+    
