@@ -1,6 +1,6 @@
 ## DISTINCT
 
-`DISTINCT` removes duplicate rows from the result set. Two rows are considered duplicates when every selected column has the same value.
+DISTINCT removes duplicate rows from the result set. Two rows are considered duplicates when every selected column has the same value.
 
 ```sql
 SELECT DISTINCT department FROM employees;
@@ -36,7 +36,7 @@ You can count unique values without listing them:
 SELECT COUNT(DISTINCT department) AS num_departments FROM employees;
 ```
 
-This returns a single number - how many unique departments exist.
+This returns a single number - how many unique non-null departments exist. COUNT(DISTINCT column) excludes NULL values.
 
 ### DISTINCT and NULLs
 
