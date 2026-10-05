@@ -1,6 +1,6 @@
 ## The ORDER BY Clause
 
-By default, SQL makes no guarantees about the order of rows in a result set. `ORDER BY` sorts the output deterministically.
+By default, SQL makes no guarantees about the order of rows in a result set. ORDER BY sorts the output deterministically.
 
 ```sql
 SELECT name, salary FROM employees ORDER BY salary DESC;
@@ -8,8 +8,8 @@ SELECT name, salary FROM employees ORDER BY salary DESC;
 
 ### Sort Direction
 
-- `ASC` (ascending) - smallest to largest. This is the default if you omit the direction.
-- `DESC` (descending) - largest to smallest.
+- ASC (ascending) - smallest to largest. This is the default if you omit the direction.
+- DESC (descending) - largest to smallest.
 
 ### Sorting on Multiple Columns
 
@@ -23,7 +23,7 @@ This groups products by category alphabetically, and within each category, lists
 
 ### NULLs in Sorting
 
-NULL values sort last in ascending order and first in descending order in most databases. Some databases support `NULLS FIRST` or `NULLS LAST` to override this:
+DuckDB places NULL values last by default for both ascending and descending order. Use NULLS FIRST or NULLS LAST to choose their position explicitly:
 
 ```sql
 ORDER BY column ASC NULLS FIRST
@@ -39,4 +39,4 @@ SELECT name, price * quantity AS total FROM orders ORDER BY total DESC;
 
 ### Execution Order
 
-`ORDER BY` is processed after `SELECT`, which is why it can reference column aliases. The full order so far: `FROM` then `WHERE` then `SELECT` then `ORDER BY`.
+ORDER BY is processed after SELECT, which is why it can reference column aliases. The full order so far: FROM then WHERE then SELECT then ORDER BY.
