@@ -1,6 +1,6 @@
 ## The WHERE Clause
 
-`WHERE` filters rows before they reach the result set. Only rows that satisfy the condition are returned.
+WHERE filters rows before they reach the result set. Only rows that satisfy the condition are returned.
 
 ```sql
 SELECT * FROM employees WHERE department = 'Engineering';
@@ -12,18 +12,18 @@ Standard operators work on numbers, strings, and dates:
 
 | Operator | Meaning |
 |----------|---------|
-| `=` | Equal |
-| `<>` or `!=` | Not equal |
-| `<`, `>` | Less / greater than |
-| `<=`, `>=` | Less / greater than or equal |
+| = | Equal |
+| <> or != | Not equal |
+| <, > | Less / greater than |
+| <=, >= | Less / greater than or equal |
 
 ### Combining Conditions
 
-- `AND` - both conditions must be true
-- `OR` - at least one condition must be true
-- `NOT` - negates a condition
+- AND - both conditions must be true
+- OR - at least one condition must be true
+- NOT - negates a condition
 
-`AND` binds tighter than `OR`. Use parentheses to control evaluation order:
+AND binds tighter than OR. Use parentheses to control evaluation order:
 
 ```sql
 WHERE (status = 'active' OR status = 'pending') AND age > 18
@@ -31,9 +31,9 @@ WHERE (status = 'active' OR status = 'pending') AND age > 18
 
 ### IN, BETWEEN, LIKE
 
-- `IN (v1, v2, v3)` - matches any value in the list. Cleaner than chaining multiple `OR`s.
-- `BETWEEN low AND high` - inclusive range check. Equivalent to `col >= low AND col <= high`.
-- `LIKE` - pattern matching. `%` matches zero or more characters, `_` matches exactly one.
+- IN (v1, v2, v3) - matches any value in the list. Cleaner than chaining multiple ORs.
+- BETWEEN low AND high - inclusive range check. Equivalent to col >= low AND col <= high.
+- LIKE - pattern matching. % matches zero or more characters, _ matches exactly one.
 
 ```sql
 WHERE name LIKE 'A%'      -- starts with A
@@ -43,7 +43,7 @@ WHERE name LIKE '_a%'      -- second character is a
 
 ### NULL Checks
 
-`NULL` represents missing data. You cannot use `=` or `<>` with NULL - they always return unknown. Use `IS NULL` or `IS NOT NULL` instead:
+NULL represents missing data. You cannot use = or <> with NULL - they always return unknown. Use IS NULL or IS NOT NULL instead:
 
 ```sql
 WHERE email IS NOT NULL
@@ -51,4 +51,4 @@ WHERE email IS NOT NULL
 
 ### Execution Order
 
-`WHERE` runs after `FROM` but before `SELECT`. This means you can filter on columns that are not in your SELECT list, but you cannot use column aliases defined in SELECT within the WHERE clause.
+WHERE filters rows before the final result is selected, so it can use columns absent from the output. DuckDB also permits non-aggregate SELECT aliases in WHERE.
