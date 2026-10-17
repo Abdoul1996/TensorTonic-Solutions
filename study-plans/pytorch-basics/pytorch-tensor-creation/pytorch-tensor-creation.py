@@ -9,5 +9,5 @@ def create_tensor(method: str, shape: list, value: float = 0.0) -> torch.Tensor:
     elif method == 'ones':
       return torch.ones(shape, dtype=torch.float32)
     else:
-      return torch.full(shape, value, dtype=torch.float32)
+      return torch.full((shape), value, dtype=torch.float32)
     
