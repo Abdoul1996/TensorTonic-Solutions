@@ -98,6 +98,7 @@ Verified machine learning implementations completed on [TensorTonic](https://www
 | Skewness and Kurtosis | Compute sample skewness and excess kurtosis, then classify the distribution's asymmetry and tail shape. | https://www.tensortonic.com/problems/probstat-skewness-kurtosis |
 | Standard Error Comparison | Given multiple samples, compute the standard error of the mean for each sample and the average standard error across all samples. | https://www.tensortonic.com/problems/probstat-standard-errors |
 | Stratified Sampling | Compute proportional allocation of a total sample and the resulting stratified estimator's mean and standard error. | https://www.tensortonic.com/problems/probstat-stratified-sampling |
+| Basic Autograd | Use PyTorch autograd to evaluate a scalar function and return its derivative at every supplied input value. | https://www.tensortonic.com/problems/pytorch-basic-autograd |
 | Tensor Operations | Perform common element-wise and matrix tensor operations: add, multiply, matmul, power, and max. | https://www.tensortonic.com/problems/pytorch-tensor-arithmetic |
 | Tensor Factory | Create PyTorch tensors with zeros, ones, or a constant fill value using the requested shape and dtype. | https://www.tensortonic.com/problems/pytorch-tensor-creation |
 | Tensor Shape Manipulation | Reshape tensors using three common PyTorch operations: flatten to collapse into 1D, squeeze to remove size-1 dimensions. | https://www.tensortonic.com/problems/pytorch-tensor-reshape |
