@@ -12,7 +12,39 @@ Here, n_n_ is the number of input values, xi_xi_​ is input value i_i_, and y_y
 
 Break Down: 
 
-1. set up autograd to the values
-2. compute y functions
-3. compute gradient
+1. set up autograd to the values 
+
+1. x.requires_grad = True
+2. compute y functions 
+
+1. x = 1 , 2, 3 
+
+y = (1 + 2), (8+4) + (27 + 6) = 3 + 12 + 33 = 48
+3. compute gradient 
+
+1. y.backward()
 4. return grad
+
+1. x.grad
+
+
+
+x = values = [1,2,3] 
+
+
+
+
+
+
+
+_Function: y_=∑​(_x^_3​+2_x_​)
+
+
+
+Input: values = [1, 2, 3]
+
+
+
+Output: [5.0, 14.0, 29.0]
+
+Explanation: The entries give the local change in the scalar result with respect to the three inputs.
