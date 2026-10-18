@@ -1,24 +1,19 @@
 import torch
-import torch.nn as nn 
 
 def activate(x: torch.Tensor, method: str = "relu") -> torch.Tensor:
     """
     Returns a float32 tensor with the same shape as x.
     """
-    x = torch.tensor(x, dtype=torch.float32)
-  
+    x = x.to(dtype=torch.float32)
     if method == 'relu':
-      ReLu = torch.nn.ReLU()
-      return ReLu(x)
+      return torch.clamp(x, min=0)
     elif method == 'leaky_relu':
-      LeakyReLU = torch.nn.LeakyReLU(negative_slope=0.01)
-      return LeakyReLU(x)
+      return torch.where(x > 0, x, 0.01*x)
     elif method == 'sigmoid':
-      sigmoid = torch.nn.Sigmoid()
-      return sigmoid(x)
+      return 1 / (1 + torch.exp(-x))
     elif method == 'tanh':
-      tanh = torch.nn.Tanh()
-      return tanh(x)
-      
-    
+      magnitude = torch.where(x >= 0, x, -x)
+      decay = torch.exp(-2 * magnitude)
+      positive = (1 - decay) / (1 + decay)
+      return torch.where(x >= 0, positive, - positive)
     
