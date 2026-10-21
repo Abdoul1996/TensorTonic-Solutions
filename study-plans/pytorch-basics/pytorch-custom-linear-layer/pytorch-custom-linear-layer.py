@@ -6,12 +6,13 @@ class CustomLinear(nn.Module):
         super().__init__()
         self.weight = nn.Parameter(torch.randn(out_features, in_features))
         self.bias = nn.Parameter(torch.randn(out_features))
+        
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """
         Returns a float32 tensor of shape (batch, out_features).
         """
         x = x.to(dtype=torch.float32)
-
-        y = torch.matmul(x, self.weight.T) + self.bias
+        y = torch.matmul(x, self.weight.T) + self.bias 
+      
         return y 
