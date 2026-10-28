@@ -4,18 +4,17 @@ def tensor_op(x: torch.Tensor, y: torch.Tensor, op: str) -> torch.Tensor:
     """
     Returns the operation result as a float32 tensor.
     """
+    x = x.to(dtype=torch.float32)
+    y = y.to(dtype=torch.float32)
 
-    x = torch.tensor(x, dtype=torch.float32)
-    y = torch.tensor(y, dtype=torch.float32)
-  
     if op == 'add':
-      return torch.add(x, y)
-    elif op == 'multiply':
-      return torch.mul(x, y)
-    elif op == 'power':
-      return torch.pow(x, y)
-    elif op == 'max':
-      return torch.max(x, y)
+      return torch.add(x,y)
     elif op == 'matmul':
-      return torch.matmul(x, y)
-    
+      return torch.matmul(x,y)
+    elif op == 'power':
+      return torch.pow(x,y)
+    elif op == 'multiply':
+      return torch.mul(x,y)
+    elif op == 'max':
+      return torch.max(x,y)
+      
