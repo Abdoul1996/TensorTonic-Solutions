@@ -19,17 +19,28 @@ Break Down:
 1. Goal: perform one gradient-descent training step without an optimizer object
 2. steps:
 
-1. Initialize the model parameters 
+1. model.zero_grad()
+2. 1. Forward pass
 
-1. weight = nn.Parameter(torch.zeros(x.shape))
-2. bias = nn.Parameter(torch.zeros(x.shape[0])
-3. weight = torch.tensor(weight, requires_grad = True)
-4. Iteratrhought the x im assuming here im not sure how to get the batch, the reason i choose x is (N,D) N is the batch i think im not sure
-5. 
-6. Forward pass 
+`pred = model(X)`
 
-1. pred = model(x)
-2. loss = criterion(pred, y)
-3. loss.backward
-4. im struggling optimizer, and how to update the weight, i understand the concept but im struggling how to put together
-7. we are returning batch loss im not sure if that meant to be w.grad
+2. Calculate batch loss
+
+`loss = criterion(pred, y)`
+
+3. Backward pass
+
+`loss.backward()`
+
+4. Manually update parameters
+
+Apply gradient descent using `param.grad`
+
+1. with torch.no_grad():
+
+1. for param in model.parameters():
+
+1. if param.requires_grad:
+
+1. param -= lr * param.grad
+2. param.grad.zero()
