@@ -5,19 +5,12 @@ def sample_var_std(x: list) -> dict:
     Returns a dictionary with variance and standard_deviation.
     """
     # Write code here
-    x = np.array(x, dtype='float64')
+    x = np.asarray(x, dtype=float)
 
-    n = len(x)
-    mean = np.mean(x)
-
-    correction = 1 / (n-1)
-    sum_center = np.sum((x-mean)**2)
-
-    variance = float(correction * sum_center)
-
-    std = float(np.sqrt(variance))
+    variance = np.var(x, ddof=1)
+    std = np.std(x, ddof=1)
 
     return {
-        "variance": variance,
-        "standard_deviation": std
+      "variance": float(variance),
+      "standard_deviation": float(std)
     }
