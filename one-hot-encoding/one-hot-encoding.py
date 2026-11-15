@@ -9,9 +9,6 @@ def one_hot(y: list, num_classes=None) -> np.ndarray:
     K = num_classes
 
     # step 1: Determine K 
-
     if K is None:
       K = max(y) + 1
-      return np.eye(K)[y]
-    else:
-      return np.eye(K)[y]
+    return np.eye(K)[y]
