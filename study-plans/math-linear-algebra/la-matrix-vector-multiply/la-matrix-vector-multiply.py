@@ -7,4 +7,4 @@ def matrix_vector_multiply(A: list, x: list) -> np.ndarray:
     A = np.asarray(A, dtype=float)
     x = np.asarray(x, dtype=float)
 
-    return np.matmul(A,x)
+    return A @ x
