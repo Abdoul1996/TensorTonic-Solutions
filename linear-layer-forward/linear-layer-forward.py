@@ -8,4 +8,4 @@ def linear_layer_forward(X: list, W: list, b: list) -> list:
     W = np.asarray(W, dtype=float)
     b = np.asarray(b, dtype=float)
 
-    return (np.dot(X,W) + b).tolist()
+    return (X @ W + b).tolist()
