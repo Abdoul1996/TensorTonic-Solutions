@@ -1,0 +1,11 @@
+import numpy as np 
+def linear_layer_forward(X: list, W: list, b: list) -> list:
+    """
+    Returns the affine transformation for every input row.
+    """
+    # Write code here
+    X = np.asarray(X, dtype=float)
+    W = np.asarray(W, dtype=float)
+    b = np.asarray(b, dtype=float)
+
+    return (np.dot(X,W) + b).tolist()
