@@ -1,23 +1,19 @@
 import math
+import numpy as np 
 
 def poisson_pmf_cdf(lam: float, k: int) -> dict:
     """
     Returns a dictionary with pmf and cdf.
     """
     # Write code here
-    # step 1: computing the PDF 
-    numerator = math.exp(- lam) * lam**k
-    denominator = math.factorial(k)
-    pmf = numerator / denominator
+    pmf = (math.exp(-lam) * lam**k ) / (math.factorial(k))
+    cdf = 0
 
-    # step 2 : computing the CDF 
-    cdf = 0.0
     for i in range(k+1):
-      prob = (math.exp(-lam) * lam**i) / math.factorial(i)
-      cdf += prob
+      cdf += np.sum((np.exp(-lam) * lam**i) / math.factorial(i))
 
     return {
-      "pmf":pmf,
-      "cdf": cdf
+      "pmf": float(pmf),
+      "cdf": float(cdf)
     }
       
