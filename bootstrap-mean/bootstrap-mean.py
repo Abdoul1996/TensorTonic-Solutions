@@ -10,6 +10,7 @@ def bootstrap_mean(x: list, n_bootstrap: int = 1000, ci: float = 0.95, seed: int
     N = len(x)
     rng = np.random.default_rng(seed)
     sample_mean = []
+    
     for i in range(n_bootstrap):
         sample = rng.choice(x, size=N, replace=True)
         x_mean = np.mean(sample)
